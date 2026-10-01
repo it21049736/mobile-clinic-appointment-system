@@ -1,17 +1,18 @@
-# Team Responsibilities — Mobile Clinic Appointment Management System
+# Team Responsibility — Mobile Clinic Appointment Management System
 
-> Fill in the **Member** column with who owns each component. Each component spans frontend screens, backend logic and the database schema.
+**Member:** IT21049736 — Nimesha K.H.
+**Role:** Sole developer, responsible for the full system from design to deployment.
 
-| # | Component | Member | Frontend (React Native) | Backend (Express) | Database (Mongoose) |
-|---|-----------|--------|-------------------------|-------------------|---------------------|
-| 1 | User & Authentication | _to assign_ | `LandingScreen`, `LoginScreen`, `RegisterScreen`, `ProfileScreen`, `AuthContext`, `authService` | `auth.controller.js`, `auth.routes.js`, `auth.middleware.js` (JWT `protect`, `adminOnly`) | `User.js` (name, email, password, phoneNumber, role) |
-| 2 | Doctor Management (primary entity) | _to assign_ | `DoctorListScreen`, `DoctorDetailScreen`, `DoctorFormScreen`, `DoctorCard`, `DoctorAvatar`, `doctorService`, `pickImage` | `doctor.controller.js`, `doctor.routes.js`, `upload.middleware.js` (Multer image upload) | `Doctor.js` (doctorName, specialization, contactNumber, consultationFee, availableDay, profileImage) |
-| 3 | Appointment Booking (related entity) | _to assign_ | `BookAppointmentScreen` (date strip, slot grid), `AppointmentListScreen`, `AppointmentDetailScreen`, `AppointmentCard`, `appointmentService` | `appointment.controller.js` — booking validation, **double-booking prevention**, reschedule, cancel | `Appointment.js` (doctorId, userId, appointmentDate, appointmentTime, reason, status) + unique slot index |
-| 4 | Admin Appointment Management | _to assign_ | `AdminDashboardScreen`, admin actions in `AppointmentDetailScreen` / `AppointmentListScreen` | `PATCH /appointments/:id/status` transitions, `DELETE /appointments/:id`, `GET /auth/users` | status lifecycle Pending → Confirmed → Completed / Cancelled |
+| # | Component | Frontend (React Native) | Backend (Node.js / Express) | Database (MongoDB / Mongoose) |
+|---|-----------|-------------------------|-----------------------------|-------------------------------|
+| 1 | User authentication | Landing, Login and Register screens with form validation; `AuthContext` keeps the JWT and user in AsyncStorage | `auth.controller.js`, `auth.routes.js`; `protect` (JWT) and `adminOnly` middleware | `User` model: name, email, password (bcrypt hash), phoneNumber, role |
+| 2 | Doctor management (primary entity) | Doctor list with search and filters, doctor details, add/edit form with photo picker | `doctor.controller.js`, `doctor.routes.js`: full CRUD; Multer image upload with type and size checks | `Doctor` model: doctorName, specialization, contactNumber, consultationFee, availableDay, profileImage |
+| 3 | Appointment management (related entity) | Booking screen with date and free-slot selection, my appointments, appointment details, reschedule and cancel | `appointment.controller.js`, `appointment.routes.js`: booking validation, **double-booking prevention**, status changes | `Appointment` model: doctorId → Doctor, userId → User, appointmentDate, appointmentTime, reason, status; unique slot index |
+| 4 | Admin functions | Dashboard, manage doctors, all appointments with Confirm / Complete / Cancel actions | Admin-only routes, status transition rules, patient list | Status lifecycle Pending → Confirmed → Completed, or Cancelled |
+| 5 | Deployment and documentation | App configured to use the hosted API | Backend hosted online, connected to MongoDB Atlas | MongoDB Atlas database `mobile-clinic` |
 
-## Group members (previous group roster — update as needed)
-- Rajapaksha R.G.M.B (IT21839160)
-- U.G.M.N Janaranjana (IT20668990)
-- Anjitha T.Y (IT20057138)
-- Warnakulasooriya H.M.G.L (IT21315800)
-- Ekanayake E.M.S.P (IT21138218)
+## Tools used
+- React Native (Expo), React Navigation, Axios
+- Node.js, Express.js, Mongoose, bcrypt, JSON Web Tokens, Multer
+- MongoDB Atlas, Git and GitHub
+- AI assistance: Claude Code (Anthropic) was used during development; see the AI-use declaration in the report.
