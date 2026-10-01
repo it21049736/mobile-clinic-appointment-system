@@ -11,8 +11,4 @@
 | 4 | Admin functions | Dashboard, manage doctors, all appointments with Confirm / Complete / Cancel actions | Admin-only routes, status transition rules, patient list | Status lifecycle Pending → Confirmed → Completed, or Cancelled |
 | 5 | Deployment and documentation | App configured to use the hosted API | Backend hosted online, connected to MongoDB Atlas | MongoDB Atlas database `mobile-clinic` |
 
-## Tools used
-- React Native (Expo), React Navigation, Axios
-- Node.js, Express.js, Mongoose, bcrypt, JSON Web Tokens, Multer
-- MongoDB Atlas, Git and GitHub
-- AI assistance: Claude Code (Anthropic) was used during development; see the AI-use declaration in the report.
+**Tools used:** React Native (Expo), React Navigation, Axios, Node.js, Express.js, Mongoose, bcrypt, JSON Web Tokens, Multer, MongoDB Atlas, Git and GitHub. AI assistance: Claude Code (Anthropic) was used during development; see the AI-use declaration in the report.
