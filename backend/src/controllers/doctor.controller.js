@@ -4,7 +4,7 @@ const { removeUpload } = require('../middleware/upload.middleware');
 const { WEEKDAYS } = require('../utils/constants');
 const { MESSAGES } = require('../utils/validation');
 
-const uploadedPath = (file) => (file ? `uploads/${file.filename}` : null);
+const uploadedPath = (file) => (file ? file.storedPath : null);
 
 const escapeRegex = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 

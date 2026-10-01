@@ -118,10 +118,11 @@ async function run() {
   form.append('availableDay', JSON.stringify([target.day]));
   form.append('profileImage', new Blob([PNG_1PX], { type: 'image/png' }), 'doctor.png');
   const created = await call('POST', '/doctors', { token: adminToken, form });
-  check('admin creates doctor with image', created.status === 201 && /^uploads\//.test(created.data.profileImage), created.data);
+  check('admin creates doctor with image', created.status === 201 && /^(uploads\/|https:\/\/)/.test(created.data.profileImage), created.data);
   const doctorId = created.data._id;
 
-  const imgRes = await fetch(`${BASE.replace(/\/api$/, '')}/${created.data.profileImage}`);
+  const img = created.data.profileImage;
+  const imgRes = await fetch(/^https?:\/\//.test(img) ? img : `${BASE.replace(/\/api$/, '')}/${img}`);
   check('uploaded image is served', imgRes.status === 200);
 
   const badForm = new FormData();
