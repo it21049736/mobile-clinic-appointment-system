@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "MediCare Mobile Clinic",
+    "slug": "mobile-clinic-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0E7C86"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow MediCare Mobile Clinic to access your photos to set doctor profile images."
+        }
+      ],
+      "expo-status-bar",
+      "expo-font"
+    ]
+  }
+}
