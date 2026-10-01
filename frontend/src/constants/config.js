@@ -17,14 +17,19 @@ const resolveApiUrl = () => {
   return `http://${FALLBACK_LAN_IP}:${API_PORT}`;
 };
 
-export const API_BASE_URL = resolveApiUrl();
+// Hosted backend (Render). Set EXPO_PUBLIC_API_URL to override, e.g. a local server during development.
+const HOSTED_API_URL = '';
+
+export const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL || HOSTED_API_URL || resolveApiUrl()).replace(/\/+$/, '');
 
 export const APP_NAME = 'MediCare Mobile Clinic';
 export const APP_TAGLINE = 'Book your doctor, skip the queue';
 export const APP_VERSION = '1.0.0';
 
+// Cloudinary images are full https URLs; locally stored ones are "uploads/<file>" on the API.
 export const imageUrl = (path, version) => {
   if (!path) return null;
+  if (/^https?:\/\//.test(path)) return path;
   const url = `${API_BASE_URL}/${path}`;
   return version ? `${url}?v=${encodeURIComponent(version)}` : url;
 };
