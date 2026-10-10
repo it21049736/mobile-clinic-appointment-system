@@ -7,7 +7,7 @@ import CustomButton from '../../components/CustomButton';
 import EmptyState from '../../components/EmptyState';
 import { AuthContext } from '../../context/AuthContext';
 import { getDoctorById, deleteDoctor, uploadDoctorImage } from '../../services/doctorService';
-import { COLORS, SHADOW } from '../../constants/colors';
+import { COLORS, SHADOW, TAB_BAR_SPACE } from '../../constants/colors';
 import { WEEKDAYS_MON_FIRST, formatDate, formatFee, upcomingDates } from '../../constants/clinic';
 import { confirmAction, errorMessage, showMessage } from '../../utils/dialogs';
 import { pickImage } from '../../utils/pickImage';
@@ -145,7 +145,7 @@ const DoctorDetailScreen = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
-  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: 32 },
+  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: TAB_BAR_SPACE },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: COLORS.background },
   retry: { marginTop: 14 },
   hero: { alignItems: 'center', paddingVertical: 12 },

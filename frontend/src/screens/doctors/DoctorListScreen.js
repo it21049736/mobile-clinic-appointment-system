@@ -9,7 +9,7 @@ import EmptyState from '../../components/EmptyState';
 import CustomButton from '../../components/CustomButton';
 import { AuthContext } from '../../context/AuthContext';
 import { getDoctors } from '../../services/doctorService';
-import { COLORS } from '../../constants/colors';
+import { COLORS, TAB_BAR_SPACE } from '../../constants/colors';
 import { WEEKDAYS } from '../../constants/clinic';
 import { errorMessage } from '../../utils/dialogs';
 import { useResponsive, centered, gridCell, MAX_WIDTH } from '../../utils/responsive';
@@ -136,7 +136,7 @@ const DoctorListScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: COLORS.background },
-  list: { ...centered(MAX_WIDTH.page), padding: 16, paddingBottom: 96 },
+  list: { ...centered(MAX_WIDTH.page), padding: 16, paddingBottom: TAB_BAR_SPACE + 72 },
   row: { marginHorizontal: -6 },
   header: { marginBottom: 6 },
   chips: { marginTop: 4 },
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   fab: {
     position: 'absolute',
     right: 20,
-    bottom: 24,
+    bottom: TAB_BAR_SPACE,
     width: 58,
     height: 58,
     borderRadius: 29,

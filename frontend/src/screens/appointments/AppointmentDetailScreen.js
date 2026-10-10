@@ -13,7 +13,7 @@ import {
   updateAppointmentStatus,
   deleteAppointment,
 } from '../../services/appointmentService';
-import { COLORS, STATUS_COLORS, SHADOW } from '../../constants/colors';
+import { COLORS, STATUS_COLORS, SHADOW, TAB_BAR_SPACE } from '../../constants/colors';
 import { STATUS_ACTIONS, formatDate, formatFee, formatTime, todayString } from '../../constants/clinic';
 import { confirmAction, errorMessage, showMessage } from '../../utils/dialogs';
 import { centered, MAX_WIDTH } from '../../utils/responsive';
@@ -214,7 +214,7 @@ const AppointmentDetailScreen = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
-  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: 40 },
+  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: TAB_BAR_SPACE },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: COLORS.background },
   mt: { marginTop: 14 },
   banner: { borderRadius: 16, padding: 14 },

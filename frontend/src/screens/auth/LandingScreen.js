@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import CustomButton from '../../components/CustomButton';
-import { COLORS } from '../../constants/colors';
+import { COLORS, SHADOW } from '../../constants/colors';
 import { APP_NAME, APP_TAGLINE } from '../../constants/config';
 import { useResponsive, centered, MAX_WIDTH } from '../../utils/responsive';
 
@@ -52,30 +52,32 @@ const LandingScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: COLORS.primary },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   scroll: { flexGrow: 1 },
   scrollWide: { justifyContent: 'center', paddingVertical: 32 },
   column: { flexGrow: 1 },
   columnWide: { ...centered(MAX_WIDTH.auth), flexGrow: 0 },
-  sheetWide: { flexGrow: 0, borderRadius: 28 },
+  sheetWide: { flexGrow: 0, marginHorizontal: 0 },
   hero: { alignItems: 'center', paddingTop: 40, paddingBottom: 32, paddingHorizontal: 24 },
   logo: {
     width: 84,
     height: 84,
     borderRadius: 24,
-    backgroundColor: 'rgba(255,255,255,0.18)',
+    backgroundColor: COLORS.primary,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 18,
   },
-  title: { fontSize: 26, fontWeight: '800', color: COLORS.white, textAlign: 'center' },
-  subtitle: { fontSize: 15, color: COLORS.onPrimaryMuted, marginTop: 6, textAlign: 'center' },
+  title: { fontSize: 30, fontWeight: '800', letterSpacing: -0.4, color: COLORS.text, textAlign: 'center' },
+  subtitle: { fontSize: 16, color: COLORS.textLight, marginTop: 6, textAlign: 'center' },
   sheet: {
     flexGrow: 1,
-    backgroundColor: COLORS.background,
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    backgroundColor: COLORS.surface,
+    borderRadius: 30,
+    marginHorizontal: 12,
+    marginBottom: 12,
     padding: 24,
+    ...SHADOW,
   },
   feature: { flexDirection: 'row', alignItems: 'center', marginBottom: 16 },
   featureIcon: {
