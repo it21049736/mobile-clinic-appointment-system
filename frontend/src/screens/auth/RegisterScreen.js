@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import { AuthContext } from '../../context/AuthContext';
-import { COLORS } from '../../constants/colors';
+import { COLORS, SHADOW } from '../../constants/colors';
 import { errorMessage } from '../../utils/dialogs';
 import { useResponsive, centered, MAX_WIDTH } from '../../utils/responsive';
 import { rules, collectErrors, normalizePhone } from '../../utils/validation';
@@ -60,7 +60,7 @@ const RegisterScreen = ({ navigation }) => {
         <ScrollView contentContainerStyle={[styles.scroll, isWide && styles.scrollWide]} keyboardShouldPersistTaps="handled">
           <View style={[styles.column, isWide && styles.columnWide]}>
           <TouchableOpacity style={styles.back} onPress={() => navigation.goBack()} hitSlop={10}>
-            <Ionicons name="arrow-back" size={24} color={COLORS.white} />
+            <Ionicons name="arrow-back" size={24} color={COLORS.text} />
           </TouchableOpacity>
           <View style={styles.header}>
             <Text style={styles.title}>Create account</Text>
@@ -96,23 +96,25 @@ const RegisterScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: COLORS.primary },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   flex: { flex: 1 },
   scroll: { flexGrow: 1 },
   scrollWide: { justifyContent: 'center', paddingVertical: 32 },
   column: { flexGrow: 1 },
   columnWide: { ...centered(MAX_WIDTH.auth), flexGrow: 0 },
-  formWide: { flexGrow: 0, borderRadius: 28 },
+  formWide: { flexGrow: 0, marginHorizontal: 0 },
   back: { padding: 16 },
   header: { paddingHorizontal: 24, paddingBottom: 24 },
-  title: { fontSize: 26, fontWeight: '800', color: COLORS.white },
-  subtitle: { fontSize: 14, color: COLORS.onPrimaryMuted, marginTop: 4 },
+  title: { fontSize: 30, fontWeight: '800', letterSpacing: -0.4, color: COLORS.text },
+  subtitle: { fontSize: 15, color: COLORS.textLight, marginTop: 4 },
   form: {
     flexGrow: 1,
     backgroundColor: COLORS.surface,
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderRadius: 30,
+    marginHorizontal: 12,
+    marginBottom: 12,
     padding: 24,
+    ...SHADOW,
   },
   errorBox: {
     flexDirection: 'row',

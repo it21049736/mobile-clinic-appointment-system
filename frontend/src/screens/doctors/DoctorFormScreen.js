@@ -4,7 +4,7 @@ import DoctorAvatar from '../../components/DoctorAvatar';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import { createDoctor, updateDoctor } from '../../services/doctorService';
-import { COLORS } from '../../constants/colors';
+import { COLORS, TAB_BAR_SPACE } from '../../constants/colors';
 import { SPECIALIZATIONS, WEEKDAYS_MON_FIRST } from '../../constants/clinic';
 import { errorMessage, showMessage } from '../../utils/dialogs';
 import { pickImage } from '../../utils/pickImage';
@@ -157,7 +157,7 @@ const DoctorFormScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   flex: { flex: 1 },
   container: { flex: 1, backgroundColor: COLORS.background },
-  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: 40 },
+  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: TAB_BAR_SPACE },
   photoBlock: { alignItems: 'center', marginBottom: 8 },
   photoButtons: { flexDirection: 'row', marginTop: 12 },
   removeBtn: { marginLeft: 8 },

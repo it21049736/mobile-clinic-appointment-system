@@ -16,7 +16,7 @@ import CustomButton from '../../components/CustomButton';
 import EmptyState from '../../components/EmptyState';
 import { getDoctorById } from '../../services/doctorService';
 import { bookAppointment, getBookedSlots, updateAppointment } from '../../services/appointmentService';
-import { COLORS, SHADOW } from '../../constants/colors';
+import { COLORS, SHADOW, TAB_BAR_SPACE } from '../../constants/colors';
 import { formatDate, formatFee, formatTime, shortDayLabel, upcomingDates } from '../../constants/clinic';
 import { errorMessage, showMessage } from '../../utils/dialogs';
 import { rules, LIMITS } from '../../utils/validation';
@@ -273,7 +273,7 @@ const BookAppointmentScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   flex: { flex: 1 },
   container: { flex: 1, backgroundColor: COLORS.background },
-  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: 40 },
+  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: TAB_BAR_SPACE },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: COLORS.background },
   doctorCard: {
     flexDirection: 'row',

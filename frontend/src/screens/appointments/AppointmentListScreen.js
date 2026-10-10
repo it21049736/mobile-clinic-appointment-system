@@ -8,7 +8,7 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import { AuthContext } from '../../context/AuthContext';
 import { getAppointments } from '../../services/appointmentService';
-import { COLORS } from '../../constants/colors';
+import { COLORS, TAB_BAR_SPACE } from '../../constants/colors';
 import { APPOINTMENT_STATUSES, isUpcoming, todayString } from '../../constants/clinic';
 import { errorMessage } from '../../utils/dialogs';
 import { useResponsive, centered, gridCell, MAX_WIDTH } from '../../utils/responsive';
@@ -155,7 +155,7 @@ const AppointmentListScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: COLORS.background },
-  list: { ...centered(MAX_WIDTH.page), padding: 16, paddingBottom: 32 },
+  list: { ...centered(MAX_WIDTH.page), padding: 16, paddingBottom: TAB_BAR_SPACE },
   row: { marginHorizontal: -6 },
   header: { marginBottom: 6 },
   count: { fontSize: 13, color: COLORS.textLight, marginTop: 10, marginBottom: 4 },
