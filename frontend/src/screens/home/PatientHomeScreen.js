@@ -11,7 +11,7 @@ import CustomButton from '../../components/CustomButton';
 import { AuthContext } from '../../context/AuthContext';
 import { getAppointments } from '../../services/appointmentService';
 import { getDoctors } from '../../services/doctorService';
-import { COLORS, RADIUS, SHADOW, TYPE } from '../../constants/colors';
+import { COLORS, RADIUS, SHADOW, TYPE, TAB_BAR_SPACE } from '../../constants/colors';
 import { formatDate, formatTime, isUpcoming, todayString } from '../../constants/clinic';
 import { errorMessage } from '../../utils/dialogs';
 import { useResponsive, centered, gridCell, gridRow, MAX_WIDTH } from '../../utils/responsive';
@@ -199,15 +199,15 @@ const PatientHomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: COLORS.primary },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   container: { flex: 1, backgroundColor: COLORS.background },
-  content: { paddingBottom: 32 },
+  content: { paddingBottom: TAB_BAR_SPACE },
   page: centered(MAX_WIDTH.page),
   headerInnerWide: { paddingHorizontal: 16 },
-  header: { backgroundColor: COLORS.primary, paddingHorizontal: 20, paddingTop: 20, paddingBottom: 56 },
-  hello: { ...TYPE.body, color: COLORS.onPrimaryMuted },
-  name: { ...TYPE.display, color: COLORS.white, marginTop: 2 },
-  body: { paddingHorizontal: 16, marginTop: -40 },
+  header: { paddingHorizontal: 20, paddingTop: 20, paddingBottom: 16 },
+  hello: { ...TYPE.body, color: COLORS.textLight },
+  name: { ...TYPE.display, color: COLORS.text, marginTop: 2 },
+  body: { paddingHorizontal: 16 },
   loader: { marginTop: 60 },
   mt: { marginTop: 14 },
   topRow: {},

@@ -9,7 +9,7 @@ import EmptyState from '../../components/EmptyState';
 import { getAppointments, updateAppointmentStatus } from '../../services/appointmentService';
 import { getDoctors } from '../../services/doctorService';
 import { getPatients } from '../../services/authService';
-import { COLORS, SHADOW } from '../../constants/colors';
+import { COLORS, SHADOW, TAB_BAR_SPACE } from '../../constants/colors';
 import { formatDate, todayString } from '../../constants/clinic';
 import { errorMessage, showMessage } from '../../utils/dialogs';
 import { useResponsive, centered, gridCell, gridRow, MAX_WIDTH } from '../../utils/responsive';
@@ -179,13 +179,13 @@ const AdminDashboardScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: COLORS.primary },
+  safe: { flex: 1, backgroundColor: 'transparent' },
   container: { flex: 1, backgroundColor: COLORS.background },
-  content: { paddingBottom: 24 },
-  header: { backgroundColor: COLORS.primary, padding: 20, paddingBottom: 28 },
-  kicker: { color: COLORS.onPrimaryMuted, fontSize: 13, fontWeight: '600' },
-  title: { color: COLORS.white, fontSize: 24, fontWeight: '800', marginTop: 2 },
-  date: { color: COLORS.onPrimaryMuted, fontSize: 13, marginTop: 4 },
+  content: { paddingBottom: TAB_BAR_SPACE },
+  header: { padding: 20, paddingBottom: 4 },
+  kicker: { color: COLORS.primary, fontSize: 14, fontWeight: '700' },
+  title: { color: COLORS.text, fontSize: 30, fontWeight: '800', letterSpacing: -0.4, marginTop: 2 },
+  date: { color: COLORS.textLight, fontSize: 14, marginTop: 4 },
   loader: { marginTop: 40 },
   mt: { marginTop: 14 },
   page: centered(MAX_WIDTH.page),

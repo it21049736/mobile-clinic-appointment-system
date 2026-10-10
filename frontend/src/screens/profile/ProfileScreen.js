@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import InfoRow from '../../components/InfoRow';
 import CustomButton from '../../components/CustomButton';
 import { AuthContext } from '../../context/AuthContext';
-import { COLORS, SHADOW } from '../../constants/colors';
+import { COLORS, SHADOW, TAB_BAR_SPACE } from '../../constants/colors';
 import { APP_NAME, APP_VERSION } from '../../constants/config';
 import { confirmLogout } from '../../utils/dialogs';
 import { centered, MAX_WIDTH } from '../../utils/responsive';
@@ -67,7 +67,7 @@ const ProfileScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
-  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: 32 },
+  content: { ...centered(MAX_WIDTH.content), padding: 16, paddingBottom: TAB_BAR_SPACE },
   hero: { alignItems: 'center', paddingVertical: 16 },
   avatar: {
     width: 88,
